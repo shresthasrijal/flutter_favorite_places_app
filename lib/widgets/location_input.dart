@@ -7,7 +7,7 @@ import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 import 'package:projj11_favorite_places/screens/map.dart';
 
-const String kapikey = 'AIzaSyBuc548BQBmT2eSm_zaq4vv7qskkL-OxvE';
+const String kapikey = '[user-ur-own-api-key]';
 
 class LocationInput extends StatefulWidget {
   const LocationInput({super.key, required this.onPickLocation});
