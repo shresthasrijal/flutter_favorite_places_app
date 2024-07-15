@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projj11_favorite_places/models/place.dart';
 import 'package:projj11_favorite_places/screens/map.dart';
 
-const String kapikey = '[user-ur-own-api-key]';
+const String kapikey = 'set ur own key';
 
 class PlaceDetails extends StatefulWidget {
   const PlaceDetails({required this.place, super.key});
