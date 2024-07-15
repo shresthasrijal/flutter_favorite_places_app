@@ -8,7 +8,9 @@ class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() {
+    return _HomeScreenState();
+  }
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
@@ -21,7 +23,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext BuildContext) {
+    final userPlaces = ref.watch(placesProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Places'),
@@ -32,7 +36,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) {
+                  builder: (ctx) {
                     return const AddPlaceDetails();
                   },
                 ),
@@ -50,7 +54,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               snapshot.connectionState == ConnectionState.waiting
                   ? const Center(child: CircularProgressIndicator())
                   : PlacesList(
-                      placeList: ref.watch(placesProvider),
+                      placeList: userPlaces,
                     ),
         ),
       ),
