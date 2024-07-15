@@ -30,6 +30,7 @@ class _AddPlaceDetailsState extends ConsumerState<AddPlaceDetails> {
             _selectedImage!,
             _selectedLocation!,
           );
+      setState(() {});
       Navigator.of(context).pop();
     }
   }
