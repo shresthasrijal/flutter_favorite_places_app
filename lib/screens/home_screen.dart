@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:projj11_favorite_places/models/place.dart';
 import 'package:projj11_favorite_places/providers/places_provider.dart';
 import 'package:projj11_favorite_places/screens/add_place.dart';
 import 'package:projj11_favorite_places/widgets/places_list.dart';
@@ -23,8 +24,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   @override
-  Widget build(BuildContext BuildContext) {
+  Widget build(BuildContext context) {
     final userPlaces = ref.watch(placesProvider);
+
+    void _handleRemovePlace(Place place) {
+      ref.read(placesProvider.notifier).removePlace(place.id);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -55,6 +60,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ? const Center(child: CircularProgressIndicator())
                   : PlacesList(
                       placeList: userPlaces,
+                      onRemove: _handleRemovePlace,
                     ),
         ),
       ),
